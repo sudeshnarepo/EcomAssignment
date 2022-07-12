@@ -1,0 +1,116 @@
+@import "../../Css/base";
+@import "../../Css/mixins";
+@import "../../Css/variable";
+@import "../../Css/aem_grid";
+
+
+.footer-wrapper {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #E5E5E7;
+
+    .footer-container {
+        margin: 10px 0;
+
+        strong {
+            letter-spacing: var(--unnamed-character-spacing-0);
+            text-align: left;
+            font: normal normal 600 16px/24px Muli;
+            letter-spacing: 0px;
+            color: $main_color1
+        }
+
+        p {
+            letter-spacing: var(--unnamed-character-spacing-0);
+            text-align: left;
+            font: normal normal normal 16px/24px Muli;
+            color: $color-grayL4;
+        }
+
+        ul {
+            li {
+                a {
+                    letter-spacing: var(--unnamed-character-spacing-0);
+                    text-align: left;
+                    font: normal normal normal 16px/24px Muli;
+                    color: $color-grayL4;
+                }
+            }
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+            padding: 10px 0;
+        }
+    }
+
+}
+
+.footer-end {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #E5E5E7;
+    .footEnd1{
+        margin: 10px 0;
+    }
+    .logo {
+        h2 {
+            font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-600) var(--unnamed-font-size-48)/var(--unnamed-line-spacing-60) var(--unnamed-font-family-source-serif-pro);
+            letter-spacing: var(--unnamed-character-spacing-0);
+            color: var(--unnamed-color-172026);
+            text-align: left;
+
+            span {
+                color: $color-primary;
+            }
+        }
+    }
+
+    .copyright {
+        letter-spacing: var(--unnamed-character-spacing-0);
+        text-align: left;
+        font: normal normal normal 14px/18px Muli;
+        letter-spacing: 0px;
+        color: $color-grayL4;
+    }
+
+    .terms {
+        padding: 0;        
+        ul {
+            display: flex;
+            gap: 20px;
+
+            li {
+                a {
+                    letter-spacing: var(--unnamed-character-spacing-0);
+                    color: $color-grayL4;
+                    text-align: right;
+                    text-decoration: underline;
+                    font: normal normal normal 14px/18px Proxima Nova;
+                }
+            }
+        }
+    }
+}
+
+@include tablet {
+    .footer-wrapper {
+        .footer-container {
+            margin: 0;
+        }
+    }
+
+    .footer-end {
+        .footEnd1{
+            margin: 0;
+        }        
+        .copyright {
+            text-align: center;
+        }
+        .terms {
+            padding: 0 20px;
+        }
+    
+    }
+}
