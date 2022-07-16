@@ -3,10 +3,10 @@
 @import "../../Css/variable";
 @import "../../Css/aem_grid";
 
-.cart-wrapper {
+.cart__wrapper {
     padding: 20px;
 
-    .shopping-bag {
+    .cart__shopping_bag {
         letter-spacing: var(--unnamed-character-spacing-0);
         color: var(--unnamed-color-172026);
         text-align: center;
@@ -115,48 +115,57 @@
     }
 
     .cart-right {
-        padding: 20px;
         margin-top: 20px;
         width: 65% !important;
-        border: 1px solid #D1D3D6;
 
-        .summary-wrapper {
-            ul.summary-content {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                margin: 5px 0;
-
-                li {
-                    letter-spacing: var(--unnamed-character-spacing-0);
-                    color: var(--unnamed-color-172026);
-                    text-align: left;
-                    font: normal normal normal 16px/24px Muli;
-                }
+        .product__summary_wrapper{
+            padding: 20px;
+            box-shadow: 0px 0px 0px 1px var(--gray-l1);
+            .product__summary_content {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              margin: 5px 0;
+                        
+              li {
+                letter-spacing: var(--unnamed-character-spacing-0);
+                color: var(--unnamed-color-172026);
+                text-align: left;
+                font: normal normal normal 16px/24px Muli;
+              }
             }
-
-            .check-out {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                padding: 15px 0;
-
-                button {
-                    padding: 9px 58px;
-                    background: var(--primary-brand) 0% 0% no-repeat padding-box;
-                    border-radius: 28px;
-                    color: #fff;
-                    opacity: 1;
-                    margin-bottom: 15px;
-                }
-
-                img {
-                    width: 195px;
-                    height: 34px;
-                }
+          
+            .product__checkout_button {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              padding: 15px 0;
+          
+              .product__checkout_btn {
+                padding: 9px 58px;
+                background-color: var(--primary-brand);
+                border: none;
+                color: #fff;
+                margin-bottom: 15px;
+                &:hover{
+                  cursor: pointer;
+                  color: var(--primary-l1);
+                  border: 1px solid var(--primary-brand);
+                }                
+              }
+              .product__checkout_paypal{
+                  border: none;
+                  background: transparent;
+                  cursor: pointer;
+                  img {
+                      width: 195px;
+                      height: 34px;
+                    }
+              }
+              
             }
-        }
+          }    
 
     }
 }
@@ -192,7 +201,7 @@
 
 @include tablet {
 
-    .cart-wrapper {
+    .cart__wrapper {
         .cart-left {
             .wrapper {
                 .right {
