@@ -61,7 +61,7 @@
 }
 
 /* Character Styles */
-.display-xl-48-dekstop-only {
+.display-xl-48-desktop-only {
   font-family: var(--unnamed-font-family-muli);
   font-style: var(--unnamed-font-style-normal);
   font-weight: var(--unnamed-font-weight-600);
@@ -194,8 +194,7 @@
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   font-family: var(--unnamed-font-family-muli);
 }
 
@@ -247,8 +246,7 @@ a {
 
 /* column of a grid */
 .aem-GridColumn {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   clear: both;
 }
 
@@ -1990,7 +1988,6 @@ a {
     display: none;
   }
 }
-
 @media (min-width: 769px) and (max-width: 1200px) {
   .aem-Grid.aem-Grid--1 > .aem-GridColumn.aem-GridColumn--tablet--1 {
     float: left;
@@ -2781,7 +2778,6 @@ a {
     display: none;
   }
 }
-
 /* maximum amount of grid cells to be provided */
 /* example configuration */
 /* default breakpoint */
@@ -4522,7 +4518,6 @@ a {
     display: none;
   }
 }
-
 /* tablet breakpoint */
 @media (min-width: 769px) and (max-width: 1200px) {
   .aem-Grid.aem-Grid--1 > .aem-GridColumn.aem-GridColumn--tablet--1 {
@@ -5314,18 +5309,13 @@ a {
     display: none;
   }
 }
-
 .secondary__banner1 {
-  display: -ms-grid;
   display: grid;
   margin-bottom: 25px !important;
 }
-
 .secondary__banner1 .secondary__banner1_content {
   position: relative;
-  -webkit-box-ordinal-group: 3;
-      -ms-flex-order: 2;
-          order: 2;
+  order: 2;
   top: 0%;
   text-align: center;
   width: 100%;
@@ -5333,40 +5323,27 @@ a {
   margin: auto;
   padding: 1.5rem;
 }
-
 .secondary__banner1 .secondary__banner1_content * {
   color: var(--unnamed-color-172026);
 }
-
 .secondary__banner1 .secondary__banner1_content .secondary__banner1_title {
   font: normal normal 600 36px/45px Source Serif Pro;
 }
-
 .secondary__banner1 .secondary__banner1_content .secondary__banner1_desc {
   font: normal normal normal 16px/24px Muli;
   padding: var(--unnamed-size-6) 0;
 }
-
 .secondary__banner1 .secondary__banner1_content .secondary__banner1_title2 {
   font: normal normal 600 20px/25px Muli;
   padding: var(--unnamed-size-6) 0;
 }
-
 .secondary__banner1 .secondary__banner1_content .secondary__banner1_buttons {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
-
 .secondary__banner1 .secondary__banner1_content .secondary__banner1_buttons .button__1 {
   color: var(--primary-brand);
   padding: var(--unnamed-size-8) 55px;
@@ -5374,13 +5351,11 @@ a {
   background-color: var(--white);
   border: 1px solid var(--primary-brand);
 }
-
 .secondary__banner1 .secondary__banner1_content .secondary__banner1_buttons .button__1:hover {
   border: 1px solid var(--primary-d1);
   color: var(--primary-d1);
   cursor: pointer;
 }
-
 .secondary__banner1 .secondary__banner1_content .secondary__banner1_buttons .button__2 {
   color: var(--white);
   padding: var(--unnamed-size-8) 55px;
@@ -5388,12 +5363,10 @@ a {
   background-color: var(--primary-brand);
   border: 1px solid var(--primary-brand);
 }
-
 .secondary__banner1 .secondary__banner1_content .secondary__banner1_buttons .button__2:hover {
   background-color: var(--primary-d1);
   cursor: pointer;
 }
-
 .secondary__banner1 .secondary__banner1_content .secondary__banner2_bottomline {
   background-color: var(--primary-brand);
   text-align: center;
@@ -5402,11 +5375,8 @@ a {
   margin: auto;
   margin-top: var(--unnamed-size-20);
 }
-
 .secondary__banner1 .secondary__banner1-image {
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
+  order: 1;
   background: url("../../../assets/images/secondary-banner1.jpg") no-repeat center;
   background-size: 100% 100%;
   height: 600px;
@@ -5414,40 +5384,29 @@ a {
 
 @media (min-width: 1024px) {
   .secondary__banner1.secondary__banner1_content.secondary__banner1_buttons .button__1,
-  .secondary__banner1.secondary__banner1_content.secondary__banner1_buttons .button__2 {
+.secondary__banner1.secondary__banner1_content.secondary__banner1_buttons .button__2 {
     padding: var(--unnamed-size-8) 50px !important;
   }
 }
-
 @media (min-width: 769px) {
   .secondary__banner1 {
-    display: -ms-grid;
     display: grid;
-    -ms-grid-columns: (1fr)[2];
-        grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     width: 83.5%;
     margin: auto;
   }
   .secondary__banner1 .secondary__banner1_content {
     position: relative;
     top: 0;
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
+    order: 1;
     text-align: left;
     padding: 0 50px;
     background: none;
   }
   .secondary__banner1 .secondary__banner1_content .secondary__banner1_buttons {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: left;
-        -ms-flex-pack: left;
-            justify-content: left;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    justify-content: left;
+    align-items: center;
   }
   .secondary__banner1 .secondary__banner1_content .secondary__banner1_buttons .button__1, .secondary__banner1 .secondary__banner1_content .secondary__banner1_buttons .button__2 {
     padding: var(--unnamed-size-8) 35px;
@@ -5457,13 +5416,10 @@ a {
     margin-top: var(--unnamed-size-20);
   }
   .secondary__banner1 .secondary__banner1-image {
-    -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
+    align-self: center;
     background: url("../../../assets/images/secondary-banner1.jpg") no-repeat center;
     background-position: 50% 50%;
     background-size: cover;
     height: 500px;
   }
-}
-/*# sourceMappingURL=SecondaryBanner1.css.map */
+}/*# sourceMappingURL=SecondaryBanner1.css.map */
