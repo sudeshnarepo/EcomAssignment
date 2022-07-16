@@ -15,8 +15,8 @@ const Cart = () => {
 
   return (
     <>
-      <div className="cart-wrapper aem-Grid aem-Grid--default--12 aem-Grid--phone--1">
-        <Link to="/"> <h2 className="shopping-bag">Shopping Bag</h2></Link>
+      <div className="cart__wrapper aem-Grid aem-Grid--default--12 aem-Grid--phone--1">
+        <Link to="/"> <h2 className="cart__shopping_bag">Shopping Bag</h2></Link>
         <div className="cart-left aem-GridColumn aem-GridColumn--default--8 aem-GridColumn--phone--1">
           {cart.map((cart) => {
             return (
@@ -55,33 +55,37 @@ const Cart = () => {
           })}
         </div>
         <div className="cart-right aem-GridColumn aem-GridColumn--default--4 aem-GridColumn--phone--1">
-          <div className="summary-wrapper">
+        <div className="product__summary_wrapper">
             <strong>Pricing Summary</strong>
-            <ul className="summary-content">
+            <ul className="product__summary_content">
               <li>Subtotal</li>
               <li>$388.00</li>
             </ul>
-            <ul className="summary-content">
+            <ul className="product__summary_content">
               <li>Coupon</li>
               <li>$77.00</li>
             </ul>
-            <ul className="summary-content">
+            <ul className="product__summary_content">
               <li>Gift Card</li>
               <li>$100.00</li>
             </ul>
-            <ul className="summary-content">
+            <ul className="product__summary_content">
               <li>Estimated Tax</li>
               <li>$28.00</li>
             </ul>
-            <ul className="summary-content">
+            <ul className="product__summary_content">
               <li>Estimated Shopping</li>
               <li>Free</li>
             </ul>
-            <div className="check-out">
-              <button> CHECKOUT</button>
-              <img src={require("../../assets/images/ppbtn.png")} alt="Paypal" />
+            <ul className="product__summary_content" >
+              <li style={{fontWeight:'bold'}}>Estimated Total</li>
+              <li style={{fontWeight:'bold'}}>$ 268.33</li>
+            </ul>
+            <div className="product__checkout_button">
+              <button className='product__checkout_btn'> CHECKOUT</button>
+              <button className='product__checkout_paypal'> <img  src={require("../../assets/images/ppbtn.png")} alt="Paypal" /> </button>              
             </div>
-          </div>
+          </div>          
         </div>
       </div>
       <div className="select-wrapper">
