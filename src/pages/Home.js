@@ -9,7 +9,6 @@ const Home = () => {
     return (
         <>
             <main>
-                <CheckoutContact/>
                 <HomeBanner />
                 <ProductCategory/>
                 <SecondaryBanner1/>

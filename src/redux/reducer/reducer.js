@@ -24,12 +24,13 @@ const reducer = (state = initialState, action) => {
         state.updateProduct = [...state.allProduct];
         state.firstFilter = false;
       }
-      if (action.payload === "all") {
+      if (action.payload === "All") {
         return { ...state, allProduct: state.updateProduct };
       }
+
       else {
         let filterCat = state.updateProduct.filter((cat => cat.category === action.payload));
-        return { ...state, allProduct: filterCat };
+        return { ...state, allProduct: filterCat }; 
       }
     }
     case "increaseQt": {
