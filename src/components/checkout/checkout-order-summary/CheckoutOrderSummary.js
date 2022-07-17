@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CheckoutTitle from '../../common-component/checkout-title/CheckoutTitle';
 import ProductSummary from '../../common-component/product-summary/ProductSummary';
+import test from '../../../assets/images/test.png';
 import "./CheckoutOrderSummary.css";
 
 const CheckoutOrderSummary = () => {
@@ -16,7 +17,7 @@ const CheckoutOrderSummary = () => {
                             <h3 className='shipping_title'>Shipping Information</h3>
                             <p className='shipping__edit'>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="15" viewBox="0 0 22.061 21.828">
-                                    <path id="edit-2" d="M17,3a2.828,2.828,0,0,1,4,4L7.5,20.5,2,22l1.5-5.5Z" transform="translate(-1 -1.172)" fill="none" stroke="#E26A2C" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+                                    <path id="edit-1" d="M17,3a2.828,2.828,0,0,1,4,4L7.5,20.5,2,22l1.5-5.5Z" transform="translate(-1 -1.172)" fill="none" stroke="#E26A2C" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
                                 </svg> Edit</p>
                         </div>
                         <div className='shipping__information_details'>
@@ -41,7 +42,7 @@ const CheckoutOrderSummary = () => {
                             <h3 className='payment_title'>Payment Information</h3>
                             <p className='payment__edit'>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="15" viewBox="0 0 22.061 21.828">
-                                    <path id="edit-2" d="M17,3a2.828,2.828,0,0,1,4,4L7.5,20.5,2,22l1.5-5.5Z" transform="translate(-1 -1.172)" fill="none" stroke="#E26A2C" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+                                    <path id="edit-3" d="M17,3a2.828,2.828,0,0,1,4,4L7.5,20.5,2,22l1.5-5.5Z" transform="translate(-1 -1.172)" fill="none" stroke="#E26A2C" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
                                 </svg> Edit</p>
                         </div>
                         <div className='shipping__information_details'>
@@ -49,10 +50,10 @@ const CheckoutOrderSummary = () => {
                         </div>
                     </div>
                     <div className='checkout__order_summary_info'>
-                        <h3 className='payment_title'>Payment Information</h3>
+                        <h3 className='payment_title'>3 items in your order</h3>
                         <div className='order__products'>
                              <div className='order__product_details'>
-                                <img className='order__product_img' alt='product'/>
+                                <img className='order__product_img' src={test} alt='product'/>
                                 <div className='order__product_info'>
                                     <h4>Electric Leggings</h4>
                                     <p>Size: Medium</p>
@@ -60,6 +61,15 @@ const CheckoutOrderSummary = () => {
                                     <p>Quantity: 2</p>
                                 </div>
                              </div>
+                             <div className='order__product_details'>
+                                <img className='order__product_img' src={test} alt='product'/>
+                                <div className='order__product_info'>
+                                    <h4>Electric Leggings</h4>
+                                    <p>Size: Medium</p>
+                                    <p>Color: Storm</p>
+                                    <p>Quantity: 2</p>
+                                </div>
+                             </div>                               
                         </div>
                     </div>
                     <button className="checkout__shipping_button">Place Order</button>
