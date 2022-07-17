@@ -5309,152 +5309,40 @@ a {
     display: none;
   }
 }
-.checkout__order_summary {
-  display: block;
-  width: 83.5%;
-  margin: auto;
-  padding: var(--unnamed-size-20) 0;
+.footer__wrapper {
+  width: 100%;
+  padding: var(--unnamed-size-20);
+  border: 1px solid var(--gray-l1);
 }
-.checkout__order_summary .checkout__guest_title {
-  font: normal normal 600 36px/30px Source Serif Pro;
-  margin-bottom: var(--unnamed-size-16);
-}
-.checkout__order_summary .checkout__shipping_information,
-.checkout__order_summary .checkout__shipping_method_details,
-.checkout__order_summary .checkout__payment_method_info {
-  padding: 20px;
-  box-shadow: 0px 0px 0px 1px var(--gray-l1);
-}
-.checkout__order_summary .checkout__shipping_information .shipping__information_title,
-.checkout__order_summary .checkout__shipping_information .shipping__method__details_title,
-.checkout__order_summary .checkout__shipping_information .payment__method__details_title,
-.checkout__order_summary .checkout__shipping_method_details .shipping__information_title,
-.checkout__order_summary .checkout__shipping_method_details .shipping__method__details_title,
-.checkout__order_summary .checkout__shipping_method_details .payment__method__details_title,
-.checkout__order_summary .checkout__payment_method_info .shipping__information_title,
-.checkout__order_summary .checkout__payment_method_info .shipping__method__details_title,
-.checkout__order_summary .checkout__payment_method_info .payment__method__details_title {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 10px;
-  color: var(--unnamed-color-172026);
-}
-.checkout__order_summary .checkout__shipping_information .shipping__information_title .shipping__edit,
-.checkout__order_summary .checkout__shipping_information .shipping__information_title .payment__edit,
-.checkout__order_summary .checkout__shipping_information .shipping__method__details_title .shipping__edit,
-.checkout__order_summary .checkout__shipping_information .shipping__method__details_title .payment__edit,
-.checkout__order_summary .checkout__shipping_information .payment__method__details_title .shipping__edit,
-.checkout__order_summary .checkout__shipping_information .payment__method__details_title .payment__edit,
-.checkout__order_summary .checkout__shipping_method_details .shipping__information_title .shipping__edit,
-.checkout__order_summary .checkout__shipping_method_details .shipping__information_title .payment__edit,
-.checkout__order_summary .checkout__shipping_method_details .shipping__method__details_title .shipping__edit,
-.checkout__order_summary .checkout__shipping_method_details .shipping__method__details_title .payment__edit,
-.checkout__order_summary .checkout__shipping_method_details .payment__method__details_title .shipping__edit,
-.checkout__order_summary .checkout__shipping_method_details .payment__method__details_title .payment__edit,
-.checkout__order_summary .checkout__payment_method_info .shipping__information_title .shipping__edit,
-.checkout__order_summary .checkout__payment_method_info .shipping__information_title .payment__edit,
-.checkout__order_summary .checkout__payment_method_info .shipping__method__details_title .shipping__edit,
-.checkout__order_summary .checkout__payment_method_info .shipping__method__details_title .payment__edit,
-.checkout__order_summary .checkout__payment_method_info .payment__method__details_title .shipping__edit,
-.checkout__order_summary .checkout__payment_method_info .payment__method__details_title .payment__edit {
-  color: var(--primary-brand);
-}
-.checkout__order_summary .checkout__shipping_information .shipping__information_title .shipping__edit:hover,
-.checkout__order_summary .checkout__shipping_information .shipping__information_title .payment__edit:hover,
-.checkout__order_summary .checkout__shipping_information .shipping__method__details_title .shipping__edit:hover,
-.checkout__order_summary .checkout__shipping_information .shipping__method__details_title .payment__edit:hover,
-.checkout__order_summary .checkout__shipping_information .payment__method__details_title .shipping__edit:hover,
-.checkout__order_summary .checkout__shipping_information .payment__method__details_title .payment__edit:hover,
-.checkout__order_summary .checkout__shipping_method_details .shipping__information_title .shipping__edit:hover,
-.checkout__order_summary .checkout__shipping_method_details .shipping__information_title .payment__edit:hover,
-.checkout__order_summary .checkout__shipping_method_details .shipping__method__details_title .shipping__edit:hover,
-.checkout__order_summary .checkout__shipping_method_details .shipping__method__details_title .payment__edit:hover,
-.checkout__order_summary .checkout__shipping_method_details .payment__method__details_title .shipping__edit:hover,
-.checkout__order_summary .checkout__shipping_method_details .payment__method__details_title .payment__edit:hover,
-.checkout__order_summary .checkout__payment_method_info .shipping__information_title .shipping__edit:hover,
-.checkout__order_summary .checkout__payment_method_info .shipping__information_title .payment__edit:hover,
-.checkout__order_summary .checkout__payment_method_info .shipping__method__details_title .shipping__edit:hover,
-.checkout__order_summary .checkout__payment_method_info .shipping__method__details_title .payment__edit:hover,
-.checkout__order_summary .checkout__payment_method_info .payment__method__details_title .shipping__edit:hover,
-.checkout__order_summary .checkout__payment_method_info .payment__method__details_title .payment__edit:hover {
-  cursor: pointer;
-  color: var(--primary-d1);
-}
-.checkout__order_summary .checkout__shipping_information .shipping__information_details,
-.checkout__order_summary .checkout__shipping_method_details .shipping__information_details,
-.checkout__order_summary .checkout__payment_method_info .shipping__information_details {
-  color: var(--gray-d1);
-}
-.checkout__order_summary .checkout__order_summary_info {
-  padding: 20px;
-  box-shadow: 0px 0px 0px 1px var(--gray-l1);
-  margin: var(--unnamed-size-20) 0;
-  color: var(--unnamed-color-172026);
-}
-.checkout__order_summary .checkout__order_summary_info .payment_title {
-  margin-bottom: var(--unnamed-size-8);
-}
-.checkout__order_summary .checkout__order_summary_info .order__products {
-  display: block;
-}
-.checkout__order_summary .checkout__order_summary_info .order__products .order__product_details {
-  display: flex;
-  gap: var(--unnamed-size-10);
-  margin-bottom: var(--unnamed-size-10);
-}
-.checkout__order_summary .checkout__order_summary_info .order__products .order__product_details .order__product_img {
-  width: 90px;
-  height: 90px;
-}
-.checkout__order_summary .checkout__shipping_method_details {
-  margin: var(--unnamed-size-20) 0;
-}
-.checkout__order_summary .checkout__shipping_button {
+.footer__wrapper .footer__wrapper_container {
   display: block;
   margin: auto;
-  color: var(--white);
-  text-align: center;
-  border: var(--unnamed-size-2) solid var(--primary-brand);
-  background-color: var(--primary-brand);
-  padding: var(--unnamed-size-8) 50px;
-  margin-top: var(--unnamed-size-16);
-  text-transform: uppercase;
 }
-.checkout__order_summary .checkout__shipping_button:hover {
-  border: 2px solid var(--primary-d1);
-  background-color: var(--primary-d1);
-  cursor: pointer;
+.footer__wrapper .footer__wrapper_links {
+  margin: var(--unnamed-size-10) 0;
 }
-.checkout__order_summary .terms__condition {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: var(--unnamed-size-10);
-  padding: var(--unnamed-size-10) 0;
+.footer__wrapper .footer__wrapper_links .column_4_title {
+  font-size: 16px;
   color: var(--unnamed-color-172026);
 }
-.checkout__order_summary .terms__condition span {
-  font-weight: 600;
+.footer__wrapper .footer__wrapper_links .column_4_desc {
+  color: var(--gray-m1);
 }
-.checkout__order_summary .checkout__payment_summary {
-  margin-top: 44px;
+.footer__wrapper .footer__wrapper_links .footer__list a {
+  font-size: 16px;
+  color: var(--gray-m1);
+}
+.footer__wrapper .footer__wrapper_links .social-icons {
+  display: flex;
+  gap: var(--unnamed-size-20);
+  padding: var(--unnamed-size-12) 0;
 }
 
 @media (min-width: 769px) {
-  .checkout__order_summary {
+  .footer__wrapper .footer__wrapper_container {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     width: 83.5%;
     margin: auto;
-    grid-gap: 20px;
   }
-  .checkout__order_summary .shipping__information_details {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .checkout__order_summary .checkout__order_summary_info .order__products {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-}/*# sourceMappingURL=CheckoutOrderSummary.css.map */
+}/*# sourceMappingURL=FooterUp.css.map */

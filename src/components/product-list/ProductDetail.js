@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import star from "../../assets/Icons/star.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../../redux/actions/index";
+import FooterUp from "../footer/footer-up/FooterUp";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -150,6 +151,7 @@ const ProductDetail = () => {
           </p>
         </div>
       </div>
+      <FooterUp/>
     </>
   );
 };

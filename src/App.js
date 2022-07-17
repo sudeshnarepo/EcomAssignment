@@ -4,7 +4,6 @@ import Cart from "./components/cart/Cart";
 import { Routes, Route } from "react-router-dom";
 import ProductDetail from "./components/product-list/ProductDetail";
 import Navbar from "./components/navbar/Navbar";
-import Footer from "./components/footer/Footer";
 import Home from "./pages/Home";
 import CheckoutContact from "./components/checkout/checkout-contactinfo/CheckoutContact";
 import CheckoutShipping from './components/checkout/checkout-shipping/CheckoutShipping'
@@ -12,6 +11,8 @@ import CheckoutPayment from './components/checkout/checkout-payment/CheckoutPaym
 import Login from "./components/checkout/login/Login";
 import ProtectedRoute from './ProtectedRoute';
 import CheckoutOrderSummary from './components/checkout/checkout-order-summary/CheckoutOrderSummary';
+import FooterEnd from "./components/footer/footer-end/FooterEnd";
+
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
 
@@ -52,7 +53,7 @@ function App() {
       } />
         <Route path="login" element= {<Login setLoggedIn={setLoggedIn}/>} /> 
       </Routes>
-      <Footer />
+      <FooterEnd />
     </div>
   );
 }
