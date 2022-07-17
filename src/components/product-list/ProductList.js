@@ -108,11 +108,11 @@ setProduct(allProduct)
         {product.map((product) => {
           return (
             <div
-              onClick={() => navigate(`/product/${product.id}`)}
               className="product_cards_card"
               key={product.id}
             >
               <img
+              onClick={() => navigate(`/product/${product.id}`)}
                 className="product__card_image"
                 src={product.image}
                 alt={product.title}

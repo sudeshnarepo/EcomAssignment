@@ -6,13 +6,21 @@ import edit from "../../assets/Icons/edit-2.svg";
 import chevron from "../../assets/Icons/chevron-down.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { increaseQt, decreaseQt, remove } from "../../redux/actions";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart_reducer.cart);
-  // console.log(cart);
-  const dispatch = useDispatch();
 
+
+  let priceAndQuantity = cart?.map((item) => {
+    return { price: item.price, quanity: item.quantity };
+  });
+  let totalSum= priceAndQuantity?.map((i) => i.price * i.quanity)?.reduce((prev, cur) => {
+      return prev + cur;
+    },0);
+
+  const dispatch = useDispatch();
+    const navigate= useNavigate();
   return (
     <>
       <div className="cart__wrapper aem-Grid aem-Grid--default--12 aem-Grid--phone--1">
@@ -41,7 +49,11 @@ const Cart = () => {
                     <button onClick={() => dispatch(increaseQt(cart.id))}> + </button>
                   </div>
                   <div className="edit">
-                    <button type="button"> <img src={edit} alt="edit icon" /> Edit </button>
+                    <button type="button" 
+                    onClick={() => {
+                      navigate(`/product/${cart.id}`);
+                    }}yd
+                    > <img src={edit} alt="edit icon" /> Edit </button>
                     <button type="button" onClick={() => dispatch(remove(cart.id))}>
                       <img src={trash} alt="trash icon" /> Remove
                     </button>
@@ -59,7 +71,7 @@ const Cart = () => {
             <strong>Pricing Summary</strong>
             <ul className="product__summary_content">
               <li>Subtotal</li>
-              <li>$388.00</li>
+              <li>${totalSum}</li>
             </ul>
             <ul className="product__summary_content">
               <li>Coupon</li>
@@ -79,10 +91,10 @@ const Cart = () => {
             </ul>
             <ul className="product__summary_content" >
               <li style={{fontWeight:'bold'}}>Estimated Total</li>
-              <li style={{fontWeight:'bold'}}>$ 268.33</li>
+              <li style={{fontWeight:'bold'}}>${totalSum+100+28}</li>
             </ul>
             <div className="product__checkout_button">
-              <button className='product__checkout_btn'> CHECKOUT</button>
+              <button className='product__checkout_btn' onClick={()=>navigate('/checkout')}> CHECKOUT</button>
               <button className='product__checkout_paypal'> <img  src={require("../../assets/images/ppbtn.png")} alt="Paypal" /> </button>              
             </div>
           </div>          

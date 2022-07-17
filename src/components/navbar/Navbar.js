@@ -54,7 +54,7 @@ const Navbar = () => {
           </div>
           <div className="navbar__nav-cart">
             <Link to="/product/Cart">
-              <img src={shoppingBag} alt="shopping cart" />
+              <img src={shoppingBag} alt="shopping cart" />x  
               <span>({state.length})</span>
             </Link>
           </div>

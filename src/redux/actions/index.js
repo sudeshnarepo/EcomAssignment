@@ -48,3 +48,21 @@ export const filterCategory = (cat) => {
     payload: cat,
   };
 };
+export const UserInformation = (cat) => {
+  return {
+    type: "UserInformation",
+    payload: cat,
+  };
+};
+export const DeliveryDetails = (cat) => {
+  return {
+    type: "DeliveryDetails",
+    payload: cat,
+  };
+};
+export const PaymentInformation = (cat) => {
+  return {
+    type: "PaymentInformation",
+    payload: cat,
+  };
+};

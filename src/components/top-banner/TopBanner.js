@@ -4,7 +4,7 @@ import "./TopBanner.css";
 
 const HeroBanner = () => {
 
-const categoryName=useSelector((state)=>state.cart_reducer.categoryName)
+const categoryName=useSelector((state)=>state.cart_reducer.category)
   return (
     <>
         <section className='top__banner'>
