@@ -175,7 +175,7 @@ const ProductList = () => {
               <Sliders style={{ width: "15px", height: "15px" }} />
               <span> Filter Results</span>
             </h2>
-            <h2 className="filter__mob">
+            <h2 onClick={handleSort} className="filter__mob">
               <ArrowUp style={{ width: "12px", height: "12px" }} />
               <ArrowDown style={{ width: "12px", height: "12px" }} />
               <span> Sort Products</span>

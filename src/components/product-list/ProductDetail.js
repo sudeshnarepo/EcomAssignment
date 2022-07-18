@@ -10,6 +10,7 @@ const ProductDetail = () => {
   const { id } = useParams();
   const [product, setProduct] = useState([]);
   const [quantity, setQuantity] = useState(0);
+  const [name,setName]= useState('')
   const data = useSelector((state) => state.cart_reducer.cart);
 
   const dispatch = useDispatch();
@@ -81,6 +82,7 @@ const ProductDetail = () => {
             </div>
           </div>
           <div className="product__detail_right">
+          <h2 className="product__detail_title">{product.category}</h2>
             <h2 className="product__detail_title">{product.title}</h2>
             <p className="product__detail_price"> ${product.price}</p>
             <div className="product__detail_rating">
