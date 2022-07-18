@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import CheckoutTitle from "../../common-component/checkout-title/CheckoutTitle";
@@ -55,7 +55,7 @@ const CheckoutOrderSummary = () => {
               </p>
               <p>
                 <span>
-                  {userInfo.firstName} {userInfo.lastName}{" "}
+                  {userInfo.firstName}{" "} {userInfo.lastName}{" "}
                 </span>{" "}
                 <br />{" "}
                 <span>
@@ -144,7 +144,7 @@ const CheckoutOrderSummary = () => {
                     alt="product"
                   />
                   <div className="order__product_info">
-                    <h4>{item.title.substring(0, 15)}</h4>
+                    <h4>{item?.title?.substring(0, 15)}</h4>
                     {/* <p>Size: Medium</p> */}
                     {/* <p>Color: Storm</p> */}
                     <p>quanity : {item.quantity}</p>
@@ -153,7 +153,7 @@ const CheckoutOrderSummary = () => {
               </div>
             </div>
           ))}
-          <button className="checkout__shipping_button">Place Order</button>
+          <button onClick={()=>navigate('/orderSuccess')}className="checkout__shipping_button">Place Order</button>
           <div className="terms__condition">
             <p>
               By clicking confirm order you agree to our{" "}

@@ -12,7 +12,7 @@ import Login from "./components/checkout/login/Login";
 import ProtectedRoute from './ProtectedRoute';
 import CheckoutOrderSummary from './components/checkout/checkout-order-summary/CheckoutOrderSummary';
 import FooterEnd from "./components/footer/footer-end/FooterEnd";
-
+import CheckoutOrderSuccess from './components/checkout/checkout-order-successful/CheckoutOrderSuccess';
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
 
@@ -49,6 +49,12 @@ function App() {
         element={
           <ProtectedRoute loggedIn={loggedIn}>
             <CheckoutOrderSummary/>
+          </ProtectedRoute>
+      } />
+       <Route path="orderSuccess" 
+        element={
+          <ProtectedRoute loggedIn={loggedIn}>
+            <CheckoutOrderSuccess/>
           </ProtectedRoute>
       } />
         <Route path="login" element= {<Login setLoggedIn={setLoggedIn}/>} /> 

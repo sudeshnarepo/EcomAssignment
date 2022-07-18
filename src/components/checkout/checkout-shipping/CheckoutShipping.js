@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CheckoutTitle from "../../common-component/checkout-title/CheckoutTitle";
 import ProductSummary from "../../common-component/product-summary/ProductSummary";
 import "./CheckoutShipping.css";
@@ -53,7 +53,6 @@ const CheckoutShipping = () => {
         setShipping({});
     }
   };
-console.log(shipping)
 const handleClick=()=>{
   if(id===null){
     setError('Please Select one option')

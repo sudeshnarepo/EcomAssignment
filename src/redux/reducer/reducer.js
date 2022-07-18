@@ -83,7 +83,6 @@ const reducer = (state = initialState, action) => {
         cartData[index] = updateWithQuantity;
         return { ...state, cart: cartData };
       }
-      // console.log(action.payload.id);
       const setProduct = state.allProduct.find((pro) => pro.id === tempId);
       const updateWithQuantity = {
         ...setProduct,

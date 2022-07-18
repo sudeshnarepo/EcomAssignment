@@ -94,7 +94,7 @@ const Cart = () => {
               <li style={{fontWeight:'bold'}}>${totalSum+100+28}</li>
             </ul>
             <div className="product__checkout_button">
-              <button className='product__checkout_btn' onClick={()=>navigate('/checkout')}> CHECKOUT</button>
+              <button className='product__checkout_btn' disabled={cart.length===0} onClick={()=>navigate('/checkout')}> CHECKOUT</button>
               <button className='product__checkout_paypal'> <img  src={require("../../assets/images/ppbtn.png")} alt="Paypal" /> </button>              
             </div>
           </div>          

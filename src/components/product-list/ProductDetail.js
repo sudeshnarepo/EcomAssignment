@@ -8,10 +8,8 @@ import FooterUp from "../footer/footer-up/FooterUp";
 
 const ProductDetail = () => {
   const { id } = useParams();
-  let aii = id;
   const [product, setProduct] = useState([]);
   const [quantity, setQuantity] = useState(0);
-  //store useDispatch
   const data = useSelector((state) => state.cart_reducer.cart);
 
   const dispatch = useDispatch();
@@ -19,10 +17,7 @@ const ProductDetail = () => {
     dispatch(addItem({ id, quantity }));
   };
   useEffect(() => {
-    console.log(data);
     let a = data.find((item) => item.id === parseInt(id));
-    console.log(id, "idddddd");
-    console.log(a);
     if (a) {
       setQuantity(a.quantity);
     }
@@ -30,7 +25,6 @@ const ProductDetail = () => {
   const getProduct = async () => {
     const response = await fetch(`https://fakestoreapi.com/products/${id}`);
     setProduct(await response.json());
-    console.log("g");
   };
   useEffect(() => {
     getProduct();

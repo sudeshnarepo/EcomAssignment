@@ -38,7 +38,6 @@ const CheckoutPayment = () => {
   let check = watch("payment");
   const navigate = useNavigate();
   const onSubmit = (data) => {
-    console.log("a", data);
     if (data.payment === null) {
       setError("you must select one payment method");
       return;
@@ -46,7 +45,6 @@ const CheckoutPayment = () => {
     dispatch(PaymentInformation(data));
     navigate("/orderSummary");
   };
-  console.log("yes", errors);
 
   return (
     <>

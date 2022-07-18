@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import CheckoutTitle from "../../common-component/checkout-title/CheckoutTitle";
 import ProductSummary from "../../common-component/product-summary/ProductSummary";
-import Login from "../login/Login";
 import { useForm } from "react-hook-form";
 import "./CheckoutContact.css";
 import { useDispatch , useSelector } from "react-redux";
@@ -10,7 +9,6 @@ import { UserInformation } from "../../../redux/actions";
 
 const CheckoutContact = (props) => {
   const userInfo = useSelector((state) => state.cart_reducer.UserInformation);
-console.log(userInfo)
   const { loggedIn } = props;
   const dispatch= useDispatch()
   const {
@@ -26,7 +24,6 @@ console.log(userInfo)
   const updateText = () => {
     setDesktop(window.innerWidth > 769);
   };
-  console.log(errors);
   useEffect(() => {
     window.addEventListener("resize", updateText);
     return () => window.removeEventListener("resize", updateText);

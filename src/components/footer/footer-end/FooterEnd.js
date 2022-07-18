@@ -1,7 +1,6 @@
 import React from 'react';
 import "./FooterEnd.css";
 import veniaLogo from "../../../assets/Icons/venia-logo.svg";
-import { Link } from "react-router-dom";
 const FooterEnd = () => {
     return (
         <>

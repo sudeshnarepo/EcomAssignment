@@ -8,32 +8,23 @@ import timesIcon from "../../assets/Icons/x.svg";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { setAllitem, setLoading } from "../../redux/actions";
 import { filterCategory } from "../../redux/actions";
 import { orderBy } from "lodash";
 const ProductList = () => {
-  const [addToWishlist, setAddToWishlist] = useState(false);
-  const { loading, allProduct } = useSelector((state) => state.cart_reducer);
+  const [id, setId] = useState([]);
+  const { allProduct } = useSelector((state) => state.cart_reducer);
   const [showFilter, setShowFilter] = useState(false);
+  const categoryName = useSelector((state) => state.cart_reducer.category);
+
   const [checkedId, SetCheckedId] = useState(null);
   const [product, setProduct] = useState([]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  // const getProducts = async () => {
-  //   const response = await fetch("https://fakestoreapi.com/products/");
-  //   const data = await response.json();
-  //   setProduct(data);
-  //   dispatch(setAllitem(data));
-  //   dispatch(setLoading(false));
-  // };
-  // useEffect(() => {
-  //   getProducts();
-  // }, []);
   useEffect(() => {
     switch (location.pathname) {
       case "/product":
-        dispatch(filterCategory('All'));
+        dispatch(filterCategory("All"));
         break;
       case "/product/Men":
         dispatch(filterCategory("men's clothing"));
@@ -47,14 +38,14 @@ const ProductList = () => {
       case "/product/electronics":
         dispatch(filterCategory("electronics"));
         break;
-      default:  dispatch(filterCategory("All"));
-      break
+      default:
+        dispatch(filterCategory("All"));
+        break;
     }
-    console.log(location,product,allProduct)
   }, [location]);
-  useEffect(()=>{
-setProduct(allProduct)
-  },[allProduct])
+  useEffect(() => {
+    setProduct(allProduct);
+  }, [allProduct]);
   const handleClick = () => {
     showFilter === true ? setShowFilter(false) : setShowFilter(true);
   };
@@ -91,28 +82,33 @@ setProduct(allProduct)
   const handleSort = (e) => {
     const name = e.target.value;
     if (name === "price") {
-    let sortArray=  orderBy(allProduct, [name], ["asc"]);
-    setProduct(sortArray)
+      let sortArray = orderBy(allProduct, [name], ["asc"]);
+      setProduct(sortArray);
     } else {
-      let sortArray= orderBy(allProduct, [(c) => c.rating.rate], ["dsc"]);
-      setProduct(sortArray)
+      let sortArray = orderBy(allProduct, [(c) => c.rating.rate], ["dsc"]);
+      setProduct(sortArray);
     }
   };
-  const Loading = () => {
-    return <>Loading.....</>;
+  const handleHeart = (e, index) => {
+    const indexFound = id.indexOf(index);
+    if (indexFound > -1) {
+      let a = id;
+      a.splice(indexFound, 1);
+      setId([...id, a]);
+    }
+    else{
+    setId([...id, index]);
+    }
   };
 
   const ShowProducts = (e) => {
     return (
       <>
-        {product.map((product) => {
+        {product.map((product, index) => {
           return (
-            <div
-              className="product_cards_card"
-              key={product.id}
-            >
+            <div className="product_cards_card" key={product.id}>
               <img
-              onClick={() => navigate(`/product/${product.id}`)}
+                onClick={() => navigate(`/product/${product.id}`)}
                 className="product__card_image"
                 src={product.image}
                 alt={product.title}
@@ -127,13 +123,13 @@ setProduct(allProduct)
                   width="22.903"
                   height="20.232"
                   viewBox="0 0 22.903 20.232"
-                  onClick={() => setAddToWishlist(!addToWishlist)}
+                  onClick={(e) => handleHeart(e, index)}
                 >
                   <path
                     id="heart"
                     d="M20.84,4.61a5.5,5.5,0,0,0-7.78,0L12,5.67,10.94,4.61a5.5,5.5,0,0,0-7.78,7.78l1.06,1.06L12,21.23l7.78-7.78,1.06-1.06a5.5,5.5,0,0,0,0-7.78Z"
                     transform="translate(-0.549 -1.998)"
-                    fill={addToWishlist ? "#333" : "none"}
+                    fill={id.includes(index) ? "#333" : "none"}
                     stroke="#172026"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -155,9 +151,9 @@ setProduct(allProduct)
           <div className="category">
             <ul>
               <li>
-                <a href="/">Clothing</a>
+                <p>{categoryName}</p>
               </li>
-              <li>
+              {/* <li>
                 {" "}
                 <a href="/"> / </a>
               </li>
@@ -171,7 +167,7 @@ setProduct(allProduct)
                 <a href="/" className="product__filter-outwear">
                   Outerwear
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
           <div className="product__filter_btn">
