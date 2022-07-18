@@ -1,23 +1,85 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
-const Login = () => {
-    return (
-        <>
-            <div class="login__wrapper">
-                <form class="login__form" action="#">
-                    <h1 className='login__title'>Login</h1>
-                    <div class="login__input">
-                        <input type="email" name='email' placeholder="Email" required="" />
-                    </div>
-                    <div class="login__input">
-                        <input type="password" name='password' placeholder="Password" required="" />
-                    </div>
-                    <button type="submit" class="login__button">LOGIN</button>
-                </form>
-            </div>
-        </>
-    );
-}
+const checkEmailAndPassword = (values) => {
+  let errors = {};
+  if (!values.email) {
+    errors.email = "Email address is required";
+  } else if (values.email !== "test@gmail.com") {
+    errors.email = "Invalid Email";
+  }
+  if (!values.password) {
+    errors.password = "Password is required";
+  } else if (values.password !== "Test@12345") {
+    errors.password = "Invalid passord";
+  }
+  return errors;
+};
 
-export default Login
+const Login = (props) => {
+  const { setLoggedIn } = props;
+  const [values, setValues] = useState({});
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const navigate = useNavigate();
+  const handleChange = (event) => {
+    event.persist();
+    setValues((values) => ({
+      ...values,
+      [event.target.name]: event.target.value,
+    }));
+  };
+  const handleSubmit = (event) => {
+    if (event) event.preventDefault();
+    setIsSubmitting(true);
+    setErrors(checkEmailAndPassword(values));
+  };
+  useEffect(() => {
+    if (Object.keys(errors).length === 0 && isSubmitting) {
+      navigate("/checkout");
+      setLoggedIn(true);
+    }
+  }, [errors]);
+
+  return (
+    <>
+      <div className="login__wrapper">
+        <form class="login__form" onSubmit={handleSubmit} noValidate>
+          <h1 className="login__title">Login</h1>
+          <div className="login__input">
+            <input
+              onChange={handleChange}
+              value={values.email || ""}
+              type="email"
+              name="email"
+              placeholder="Email"
+              required=""
+            />
+          </div>
+          {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
+          <div class="login__input">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              required=""
+              value={values.password || ""}
+              onChange={handleChange}
+            />
+
+            {errors.password && (
+              <p style={{ color: "red" }}>{errors.password}</p>
+            )}
+          </div>
+          <button type="submit" className="login__button">
+            LOGIN
+          </button>
+        </form>
+      </div>
+    </>
+  );
+};
+
+export default Login;

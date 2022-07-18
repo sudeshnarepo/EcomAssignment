@@ -1,8 +1,18 @@
-import test from '../../../assets/images/test.png';
 import "./CheckoutOrderSuccess.css";
 import FooterUp from '../../footer/footer-up/FooterUp';
-
+import { useSelector } from 'react-redux';
 const CheckoutOrderSuccess = () => {
+    const userInfo = useSelector((state) => state.cart_reducer.UserInformation);
+    const shippingInfo = useSelector(
+      (state) => state.cart_reducer.DeliveryDetails
+    );
+    const paymentInfo = useSelector(
+      (state) => state.cart_reducer.PaymentInformation
+    );
+    const cart = useSelector((state) => state.cart_reducer.cart);
+  
+    let last4 = paymentInfo.cardNumber.slice(-4);
+
     return (
 
         <>
@@ -13,27 +23,45 @@ const CheckoutOrderSuccess = () => {
                     <div className='order__shipping_details'>
                         <div className='order__shipping_information'>
                             <h3 className='order__shipping_title'>Shipping Information</h3>
-                            <p className='order__shipping_address'><span>q_farhan@gmail.com </span><br /><span>+1 (555) 229-3367</span></p>
+                            <p className='order__shipping_address'><span>{userInfo.emailInput}</span><br /><span>{userInfo.phoneInput}</span></p>
                         </div>
                         <div className='order__shipping_information'>
                             <h3 className='order__shipping_title'>Shipping Method</h3>
-                            <p className='order__shipping_address'>Standard Shipping Est. delivery in 4 - 8 business days FREE</p>
+                            <p className='order__shipping_address'>
+                            {shippingInfo.delivery}<br/> {' '} {shippingInfo.days}{' '}<br/>
+                {shippingInfo.price}
+                                </p>
                         </div>
                     </div>
                     <div className='order__shipping_address_payment'>
                         <div className='order__payment_information'>
-                            <h3 className='order__shipping_title'>Qadim Farhan</h3>
-                            <p className='order__shipping_address'>1098 Wapello Street Altadena, California 91001 United States</p>
+                            <h3 className='order__shipping_title'>{userInfo.firstName}{" "} {userInfo.lastName}</h3>
+                            <p className='order__shipping_address'> {userInfo.addressOne} {userInfo.addressTwo} ,{userInfo.City} ,
+                  {userInfo.State} {userInfo.zipInput} {userInfo.Country}</p>
                         </div>
                         <div className='order__payment_information'>
                             <h3 className='order__shipping_title'>Payment Information</h3>
-                            <p className='order__shipping_address'><span>Credit Card </span> <br />Visa ending in 4567</p>
+                            <p className='order__shipping_address'><span> {paymentInfo.payment}</span> <br />{paymentInfo.payment === "paypal"
+                  ? " "
+                  : `Visa ending with ${last4}`}
+
+                
+                            </p>
                         </div>
                     </div>
                     <div className='checkout__order_product_info'>
-                        <h3 className='payment_title'>3 items in your order</h3>
+                        <h3 className='payment_title'>{cart.length} items in your order</h3>
                         <div className='order__products'>
-                            <div className='order__product_details'>
+                            {cart.map((item)=><div className='order__product_details'>
+                                <img className='order__product_img' src={item.image} alt='product' />
+                                <div className='order__product_info'>
+                                    <h4>{item?.title?.substring(0, 15)}</h4>
+                                    {/* <p>Size: Medium</p>
+                                    <p>Color: Storm</p> */}
+                                                        <p>quanity : {item.quantity}</p>
+                                </div>
+                            </div>)}
+                            {/* <div className='order__product_details'>
                                 <img className='order__product_img' src={test} alt='product' />
                                 <div className='order__product_info'>
                                     <h4>Electric Leggings</h4>
@@ -41,16 +69,7 @@ const CheckoutOrderSuccess = () => {
                                     <p>Color: Storm</p>
                                     <p>Quantity: 2</p>
                                 </div>
-                            </div>
-                            <div className='order__product_details'>
-                                <img className='order__product_img' src={test} alt='product' />
-                                <div className='order__product_info'>
-                                    <h4>Electric Leggings</h4>
-                                    <p>Size: Medium</p>
-                                    <p>Color: Storm</p>
-                                    <p>Quantity: 2</p>
-                                </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                     <div className='order__shipment_description'>

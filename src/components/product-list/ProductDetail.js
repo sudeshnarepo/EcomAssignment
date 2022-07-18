@@ -2,7 +2,7 @@ import "./css/ProductDetail.css";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import star from "../../assets/Icons/star.svg";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../../redux/actions/index";
 import FooterUp from "../footer/footer-up/FooterUp";
 
@@ -10,19 +10,25 @@ const ProductDetail = () => {
   const { id } = useParams();
   const [product, setProduct] = useState([]);
   const [quantity, setQuantity] = useState(0);
-  //store useDispatch
+  const data = useSelector((state) => state.cart_reducer.cart);
+
   const dispatch = useDispatch();
-  const handleCart = (product) => {
-    // console.log(product.id);
+  const handleCart = () => {
     dispatch(addItem({ id, quantity }));
   };
+  useEffect(() => {
+    let a = data.find((item) => item.id === parseInt(id));
+    if (a) {
+      setQuantity(a.quantity);
+    }
+  }, []);
   const getProduct = async () => {
     const response = await fetch(`https://fakestoreapi.com/products/${id}`);
     setProduct(await response.json());
   };
   useEffect(() => {
     getProduct();
-  });
+  }, []);
 
   return (
     <>
@@ -30,14 +36,48 @@ const ProductDetail = () => {
         <div className="product__detail_wrapper1">
           <div className="product__detail_left">
             <div className="product__image">
-              <img className="product__image_img" src={product.image} alt="{product.title}" />
+              <img
+                className="product__image_img"
+                src={product.image}
+                alt="{product.title}"
+              />
             </div>
             <div className="product__image_slider">
-              <div><img className="slider_image" src={product.image} alt="swatch01" /></div>
-              <div><img className="slider_image" src={product.image} alt="swatch01" /></div>
-              <div><img className="slider_image" src={product.image} alt="swatch01" /></div>
-              <div><img className="slider_image" src={product.image} alt="swatch01" /> </div>
-              <div><img className="slider_image" src={product.image} alt="swatch01" /></div>
+              <div>
+                <img
+                  className="slider_image"
+                  src={product.image}
+                  alt="swatch01"
+                />
+              </div>
+              <div>
+                <img
+                  className="slider_image"
+                  src={product.image}
+                  alt="swatch01"
+                />
+              </div>
+              <div>
+                <img
+                  className="slider_image"
+                  src={product.image}
+                  alt="swatch01"
+                />
+              </div>
+              <div>
+                <img
+                  className="slider_image"
+                  src={product.image}
+                  alt="swatch01"
+                />{" "}
+              </div>
+              <div>
+                <img
+                  className="slider_image"
+                  src={product.image}
+                  alt="swatch01"
+                />
+              </div>
             </div>
           </div>
           <div className="product__detail_right">
@@ -67,16 +107,31 @@ const ProductDetail = () => {
             <div className="product__detail_buttons">
               <label>Quantity</label>
               <div className="product__detail_btn">
-                <button className="price_button" onClick={() => setQuantity((pre) => pre - 1)}>
+                <button
+                disabled={quantity === 0}
+                  className="price_button"
+                  onClick={() => setQuantity((pre) => pre - 1)}
+                >
                   -
                 </button>
                 <input className="input_value" value={quantity} id="numbr" />
-                <button className="price_button" onClick={() => setQuantity((pre) => pre + 1)}>
+                <button
+                  className="price_button"
+                  onClick={() => setQuantity((pre) => pre + 1)}
+                >
                   +
                 </button>
               </div>
             </div>
-            <button onClick={() => handleCart(product)} type="button" className="add__cart_btn">
+            <button
+                disabled={quantity === 0}
+              onClick={() => handleCart(product)}
+              style={{
+                backgroundColor: quantity === 0 ? "#707070" : "#E26A2C",
+              }}
+              type="button"
+              className="add__cart_btn"
+            >
               Add to cart
             </button>
           </div>
@@ -84,8 +139,9 @@ const ProductDetail = () => {
         <div className="product__detail_wrapper2">
           <h2 className="product_title1">{product.title}</h2>
           <p className="product_title2">Description</p>
-          <p className="product_description">{product.description}
-          <hr className="product_description_line"/>
+          <p className="product_description">
+            {product.description}
+            <hr className="product_description_line" />
           </p>
         </div>
       </div>

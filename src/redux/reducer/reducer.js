@@ -4,7 +4,10 @@ const initialState = {
   cart: [],
   category: "",
   firstFilter: true,
-  updateProduct: ""
+  updateProduct: "",
+  UserInformation: {},
+  PaymentInformation: {},
+  DeliveryDetails: {},
 };
 
 const reducer = (state = initialState, action) => {
@@ -20,16 +23,18 @@ const reducer = (state = initialState, action) => {
       return { ...state, cart: updateCart };
     }
     case "filterCategory": {
+     
       if (state.firstFilter) {
         state.updateProduct = [...state.allProduct];
         state.firstFilter = false;
       }
-      if (action.payload === "all") {
-        return { ...state, allProduct: state.updateProduct };
-      }
-      else {
-        let filterCat = state.updateProduct.filter((cat => cat.category === action.payload));
-        return { ...state, allProduct: filterCat };
+      if (action.payload === "All") {
+        return { ...state, allProduct: state.updateProduct , category: action.payload,};
+      } else {
+        let filterCat = state.updateProduct.filter(
+          (cat) => cat.category === action.payload
+        );
+        return { ...state, allProduct: filterCat , category: action.payload,};
       }
     }
     case "increaseQt": {
@@ -64,21 +69,36 @@ const reducer = (state = initialState, action) => {
     }
 
     case "ADDITEM": {
-      let tempId = action.payload.id - 1;
+      let tempId = parseInt(action.payload.id);
       const findProduct = state.cart.find((pro) => pro.id === tempId);
       if (findProduct) {
-        // console.log("got");
-        return { ...state, cart: [...state.cart] };
+        let index = state.allProduct.findIndex((pro) => pro.id === tempId);
+        const setProduct = state.cart[index];
+
+        const updateWithQuantity = {
+          ...setProduct,
+          quantity: parseInt(action.payload.quantity),
+        };
+        const cartData = [...state.cart];
+        cartData[index] = updateWithQuantity;
+        return { ...state, cart: cartData };
       }
-      // console.log(action.payload.id);
       const setProduct = state.allProduct.find((pro) => pro.id === tempId);
       const updateWithQuantity = {
         ...setProduct,
-        quantity: action.payload.quantity,
+        quantity: parseInt(action.payload.quantity),
       };
       return { ...state, cart: [...state.cart, updateWithQuantity] };
     }
-
+    case "UserInformation": {
+      return { ...state, UserInformation: action.payload };
+    }
+    case "DeliveryDetails": {
+      return { ...state, DeliveryDetails: action.payload };
+    }
+    case "PaymentInformation": {
+      return { ...state, PaymentInformation: action.payload };
+    }
     default:
       return state;
   }

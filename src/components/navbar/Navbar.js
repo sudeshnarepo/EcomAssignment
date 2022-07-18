@@ -36,13 +36,13 @@ const Navbar = () => {
             </div>
             <ul tabIndex={0} role="listbox">
               <li >
-                <Link to="/product" target="_self" onClick={() => dispatch(filterCategory("all"))}>Home</Link>
+                <Link to="/product" target="_self" onClick={() => dispatch(filterCategory("All"))}>Home</Link>
               </li>
               <li>
-                <Link to="/product/women" target="_self" onClick={() => dispatch(filterCategory("women's clothing"))}>Women</Link>
+                <Link to="/product/Women" target="_self" onClick={() => dispatch(filterCategory("women's clothing"))}>Women</Link>
               </li>
               <li>
-                <Link to="/product/men" target="_self" onClick={() => dispatch(filterCategory("men's clothing"))}>Men</Link>
+                <Link to="/product/Men" target="_self" onClick={() => dispatch(filterCategory("men's clothing"))}>Men</Link>
               </li>
               <li>
                 <Link to="/product/electronics" target="_self" onClick={() => dispatch(filterCategory("electronics"))}>Smart Gear</Link>
@@ -54,7 +54,7 @@ const Navbar = () => {
           </div>
           <div className="navbar__nav-cart">
             <Link to="/product/Cart">
-              <img src={shoppingBag} alt="shopping cart" />
+              <img src={shoppingBag} alt="shopping cart" />x  
               <span>({state.length})</span>
             </Link>
           </div>
