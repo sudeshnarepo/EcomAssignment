@@ -5338,6 +5338,7 @@ a {
 .checkout__payment .checkout__shipping_information .shipping__method__details_title .shipping__edit,
 .checkout__payment .checkout__shipping_method_details .shipping__information_title .shipping__edit,
 .checkout__payment .checkout__shipping_method_details .shipping__method__details_title .shipping__edit {
+  display: flex;
   color: var(--primary-brand);
 }
 .checkout__payment .checkout__shipping_information .shipping__information_title .shipping__edit:hover,

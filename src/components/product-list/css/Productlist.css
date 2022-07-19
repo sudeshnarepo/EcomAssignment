@@ -5350,26 +5350,21 @@ a {
 .product__container .product__filter .active {
   left: 0px;
 }
-.product__container .product__filter h2,
-.product__container .product__filter h3 {
+.product__container .product__filter .filter__desktop, .product__container .product__filter .filter__item_title, .product__container .product__filter .category_title {
   font-size: var(--unnamed-size-16);
   color: var(--gray-d2);
   text-align: left;
-  padding: var(--unnamed-size-20) 0;
+  padding: var(--unnamed-size-8) 0;
 }
-.product__container .product__filter h2 {
-  margin-bottom: -5px;
-  cursor: pointer;
-}
-.product__container .product__filter hr {
-  margin-top: var(--unnamed-size-20);
+.product__container .product__filter .horizontal_line {
+  margin-top: var(--unnamed-size-10);
 }
 .product__container .product__filter .category ul {
   display: flex;
   gap: 5px;
   flex-wrap: wrap;
 }
-.product__container .product__filter .category ul li a {
+.product__container .product__filter .category ul .category_titlet a {
   font-size: var(--unnamed-size-16);
   text-align: left;
   color: var(--unnamed-color-172026);
@@ -5377,7 +5372,10 @@ a {
 .product__container .product__filter .category ul .product__filter-outwear {
   color: var(--gray-d1);
 }
-.product__container .product__filter .filter__item ul li span {
+.product__container .product__filter .filter__item {
+  cursor: pointer;
+}
+.product__container .product__filter .filter__item .filter__list_item label {
   font-size: var(--unnamed-font-size-14);
   color: var(--gray-d2);
   text-align: left;
@@ -5417,6 +5415,7 @@ a {
   width: 150px;
   height: 150px;
   margin: 0 auto;
+  cursor: pointer;
 }
 .product__container .product__card_wrapper .product_cards .product_cards_card .product__card_save {
   cursor: pointer;

@@ -24,6 +24,7 @@
       padding-bottom: 10px;
       color: var(--unnamed-color-172026);
       .shipping__edit {
+        display: flex;
         color: var(--primary-brand);
         &:hover {
           cursor: pointer;

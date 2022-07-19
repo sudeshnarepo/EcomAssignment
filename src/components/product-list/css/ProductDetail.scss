@@ -1,6 +1,5 @@
 @import "../../../Css/base";
 @import "../../../Css/mixins";
-@import "../../../Css/variable";
 @import "../../../Css/aem_grid";
 
 .product__detail {
@@ -60,6 +59,11 @@
                 font: normal normal 600 36px/45px Source Serif Pro;
                 text-align: left;
                 margin: var(--unnamed-size-8) 0;
+            }
+            .product__detail_subtitle{
+                font-size: 16px;
+                text-align: left;
+                margin: var(--unnamed-size-6) 0;
             }
 
             .product__detail_price {
@@ -129,11 +133,18 @@
                 }
 
             }
+            .product__detail_save_share {
+                display: flex;
+                gap: 10px;
+                margin: 10px 0;
+                cursor: pointer;
+            }
 
             .add__cart_btn {
                 padding: 8px 86px;
                 margin: var(--unnamed-size-10) 0;
                 background-color: var(--primary-brand);
+                border: 1px solid var(--primary-brand);
                 box-shadow: 0px var(--unnamed-size-2) var(--unnamed-size-6) #39373729;
                 color: var(--white);
                 text-align: center;
@@ -141,8 +152,7 @@
                 text-transform: uppercase;
                 cursor: pointer;
                 &:hover{
-                    background-color: var(--primary-d1);
-                    color: var(--gray-d2);
+                    color: var(--primary-m1);
                 }
             }
 
@@ -168,15 +178,14 @@
         .product_description {
             letter-spacing: var(--unnamed-character-spacing-0);
             text-align: left;
-            font: normal normal normal 16px/24px Muli;
-
-            .product_description_line {
-                position: absolute;
-                margin: 6px 0;
-                border: var(--unnamed-size-2) solid var(--primary-brand);
-                width: 100px;
-                background-color: var(--primary-brand);
-            }
+            font: normal normal normal 16px/24px Muli;            
+        }
+        .product_description_line {
+            position: absolute;
+            margin: 6px 0;
+            border: var(--unnamed-size-2) solid var(--primary-brand);
+            width: 100px;
+            background-color: var(--primary-brand);
         }
     }
 

@@ -22,7 +22,6 @@ const Login = (props) => {
   const [values, setValues] = useState({});
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   const navigate = useNavigate();
   const handleChange = (event) => {
     event.persist();
@@ -45,30 +44,17 @@ const Login = (props) => {
 
   return (
     <>
-      <div className="login__wrapper">
-        <form class="login__form" onSubmit={handleSubmit} noValidate>
+      <div className="login__wrapper" aria-labelledby="login-form">
+        <form className="login__form" onSubmit={handleSubmit} noValidate>
           <h1 className="login__title">Login</h1>
           <div className="login__input">
-            <input
-              onChange={handleChange}
-              value={values.email || ""}
-              type="email"
-              name="email"
-              placeholder="Email"
-              required=""
-            />
+            <input onChange={handleChange} value={values.email || ""} autoComplete="off" type="email" name="email" placeholder="Email"
+              required="" />
           </div>
           {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
-          <div class="login__input">
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              required=""
-              value={values.password || ""}
-              onChange={handleChange}
-            />
-
+          <div className="login__input">
+            <input type="password" name="password" autoComplete="off" placeholder="Password"  required=""
+              value={values.password || ""} onChange={handleChange} />
             {errors.password && (
               <p style={{ color: "red" }}>{errors.password}</p>
             )}

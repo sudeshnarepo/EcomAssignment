@@ -8,8 +8,8 @@ const navigate=useNavigate()
 
   return (
     <>
-      <section className='secondary__banner2'>
-        <div className='secondary__banner2_image'></div>
+      <section className='secondary__banner2' aria-labelledby="adventure-title">
+        <div className='secondary__banner2_image' role="img" aria-label="conquer-adventure"></div>
         <div className='secondary__banner2_content'>
           <h2 className='secondary__banner2_title'>Conquer Your <br /> Next Adventure</h2>
           <p className='secondary__banner2_desc'>Lorem Ipsum Dolor Tempor</p>

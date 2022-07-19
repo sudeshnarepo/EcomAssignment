@@ -28,7 +28,6 @@ const CheckoutContact = (props) => {
     window.addEventListener("resize", updateText);
     return () => window.removeEventListener("resize", updateText);
   });
-
   
   const onSubmit = (data) => {
     if (!loggedIn) {
@@ -41,7 +40,7 @@ const CheckoutContact = (props) => {
   return (
     <>
       <CheckoutTitle />
-      <section className="checkout__contact">
+      <section className="checkout__contact" aria-labelledby="checkout-contact-information">
         <aside className="checkout__contact_form">
           <h3 className="checkout__guest_title">Guest Checkout</h3>
           <div className="checkout__guest_info">
@@ -50,13 +49,10 @@ const CheckoutContact = (props) => {
               We’ll use these details to keep you informed on your delivery.
             </p>
           </div>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSubmit)} role="form" aria-label="contact-form">
             <div className="form__input_groups">
               <div className="form__input_grp">
-                <label className="checkout__contact_label" htmlFor="emailInput">
-                  Email
-                </label>
-                <br />
+                <label className="checkout__contact_label" htmlFor="emailInput"> Email </label> <br />
                 <input
                   {...register("emailInput", {
                     required: "Email Address is required",
@@ -66,17 +62,11 @@ const CheckoutContact = (props) => {
                       message: "Enter valid Email",
                     },
                   })}
-                  type="text"
-                  name="emailInput"
-                  id="emailInput"
-                  placeholder="abc@xyz.com"
-                />
+                  type="text" name="emailInput" id="emailInput" placeholder="abc@xyz.com" autoComplete="off" />
                 <p style={{ color: "red" }}>{errors?.emailInput?.message}</p>
               </div>
               <div className="form__input_grp">
-                <label className="checkout__contact_label" htmlFor="phoneInput">
-                  Phone number
-                </label>
+                <label className="checkout__contact_label" htmlFor="phoneInput">Phone number</label>
                 <br />
                 <input
                   {...register("phoneInput", {
@@ -94,79 +84,50 @@ const CheckoutContact = (props) => {
                       message:'Enter 10 digit mobile number'
                     }
                   })}
-                  type="text"
-                  name="phoneInput"
-                  id="phoneInput"
-                  placeholder="(222) 222-222"
-                />
+                  type="text" name="phoneInput" id="phoneInput" placeholder="(222) 222-222" autoComplete="off" />
                 <p style={{ color: "red" }}>{errors.phoneInput?.message}</p>
               </div>
             </div>
             <h4>1. Shipping Information</h4>
             <div className="form__input_grp">
-              <label className="checkout__contact_label" htmlFor="countryList">
-                {" "}
-                Country
-              </label>{" "}
-              <br />
-              <select
-                {...register("Country", { required: "Country is required" })}
-                className="country__dropdown"
-                id="countryList"
-              >
-                <option value="USA">USA</option>
-                <option value="India">India</option>
-                <option value="Russia">Russia</option>
-                <option value="Japan">Japan</option>
+              <label className="checkout__contact_label" htmlFor="countryList"> {" "} Country </label>{" "} <br />
+              <select {...register("Country", { required: "Country is required" })}
+                className="country__dropdown" id="countryList" >
+                <option name="USA">USA</option>
+                <option name="India">India</option>
+                <option name="Russia">Russia</option>
+                <option name="Japan">Japan</option>
               </select>
               <p style={{ color: "red" }}>{errors.Country?.message}</p>
             </div>
             <div className="form__input_groups">
               <div className="form__input_grp">
-                <label className="checkout__contact_label" htmlFor="firstName">
-                  First Name
-                </label>
-                <br />
+                <label className="checkout__contact_label" htmlFor="firstName"> First Name </label> <br />
                 <input
                   {...register("firstName", {
                     required: "First Name is required",
                   })}
-                  type="text"
-                  name="firstName"
-                  id="firstName"
-                />
+                  type="text" name="firstName" id="firstName" autoComplete="off"/>
                 <p style={{ color: "red" }}>{errors.firstName?.message}</p>
               </div>
               <div className="form__input_grp">
-                <label className="checkout__contact_label" htmlFor="lastName">
-                  Last Name
-                </label>
-                <br />
+                <label className="checkout__contact_label" htmlFor="lastName"> Last Name </label> <br />
                 <input
                   {...register("lastName", {
                     required: "Last Name is required",
                   })}
-                  type="text"
-                  name="lastName"
-                  id="lastName"
-                />
+                  type="text" name="lastName" id="lastName" autoComplete="off"/>
                 <p style={{ color: "red" }}>{errors.lastName?.message}</p>
               </div>
             </div>
             <div className="form__input_groups">
               <div className="form__input_grp">
-                <label className="checkout__contact_label" htmlFor="addressOne">
-                  Street Address
-                </label>
-                <br />
+                <label className="checkout__contact_label" htmlFor="addressOne"> Street Address </label> <br />
                 <input
                   {...register("addressOne", {
                     required: "Street Address is required",
                   })}
-                  type="text"
-                  name="addressOne"
-                  id="addressOne"
-                />
+                  type="text" name="addressOne" id="addressOne" autoComplete="off"/>
                 <p style={{ color: "red" }}>{errors.addressOne?.message}</p>
               </div>
               <div className="form__input_grp">
@@ -176,48 +137,32 @@ const CheckoutContact = (props) => {
                 <br />
                 <input
                   {...register("addressTwo")}
-                  type="text"
-                  name="addressTwo"
-                  id="addressTwo"
-                />
+                  type="text" name="addressTwo" id="addressTwo" autoComplete="off"/>
               </div>
             </div>
             <div className="form__input_groups">
               <div className="form__input_grp">
-                <label className="checkout__contact_label" htmlFor="cityInput">
-                  City
-                </label>
-                <br />
+                <label className="checkout__contact_label" htmlFor="cityInput"> City </label> <br />
                 <input
                   {...register("cityInput", { required: "City is required" })}
-                  type="text"
-                  name="cityInput"
-                  id="cityInput"
-                />
+                  type="text" name="cityInput" id="cityInput" autoComplete="off"/>
                 <p style={{ color: "red" }}>{errors.cityInput?.message}</p>
               </div>
               <div className="form__input_grp">
-                <label className="checkout__contact_label" htmlFor="stateInput">
-                  State
-                </label>
-                <br />
+                <label className="checkout__contact_label" htmlFor="stateInput">  State </label> <br />
                 <select
                   {...register("State", { required: "State is required" })}
                   className="state__dropdown"
-                  id="stateList"
-                >
-                  <option value="California">California</option>
-                  <option value="Delhi">Delhi</option>
-                  <option value="Tokyo">Tokyo</option>
-                  <option value="Mexico">Mexico</option>
+                  id="stateList" >
+                  <option name="California">California</option>
+                  <option name="Delhi">Delhi</option>
+                  <option name="Tokyo">Tokyo</option>
+                  <option name="Mexico">Mexico</option>
                 </select>
                 <p style={{ color: "red" }}>{errors.State?.message}</p>
               </div>
               <div className="form__input_grp">
-                <label className="checkout__contact_label" htmlFor="zipInput">
-                  Zip
-                </label>
-                <br />
+                <label className="checkout__contact_label" htmlFor="zipInput"> Zip </label> <br />
                 <input
                   {...register("zipInput", {
                     required: "Zipcode is required",
@@ -227,11 +172,7 @@ const CheckoutContact = (props) => {
                       message: "enter numbers only",
                     },
                   })}
-                  type="text"
-                  name="zipInput"
-                  id="zipInput"
-                  placeholder="91001"
-                />
+                  type="text" name="zipInput" id="zipInput" placeholder="91001" autoComplete="off"/>
                 <p style={{ color: "red" }}>{errors.zipInput?.message}</p>
               </div>
             </div>
@@ -244,14 +185,14 @@ const CheckoutContact = (props) => {
               )}
             </button>
           </form>
-          <div className="checkout__other_option">
+          <div className="checkout__other_option" aria-label="shipping-method">
             <p className="shipment_method">2. Shipping Method</p>
             <p className="payment_method">3. Payment Method</p>
           </div>
         </aside>
-        <aside className="checkout__summary">
+        <aside className="checkout__summary" aria-labelledby="product-summary">
           {!loggedIn && (
-            <div className="checkout__login">
+            <div className="checkout__login" aria-label="sign-in">
               <h4 className="checkout__login_title">
                 Sign in for Express Checkout
               </h4>

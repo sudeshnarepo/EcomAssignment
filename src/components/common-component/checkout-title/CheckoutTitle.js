@@ -4,7 +4,7 @@ import "./CheckoutTitle.css";
 const CheckoutTitle = () => {
   return (
     <>
-        <h2 className='checkout_title'>Checkout</h2>
+      <header><h2 className='checkout_title'>Checkout</h2></header>
     </>
   )
 }

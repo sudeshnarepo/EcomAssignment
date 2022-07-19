@@ -14,7 +14,7 @@ const ProductSummary = () => {
 
   return (
     <>
-        <div className="product__summary_wrapper">
+        <div className="product__summary_wrapper" aria-labelledby="product-summary">
             <strong>Pricing Summary</strong>
             <ul className="product__summary_content">
               <li>Subtotal</li>

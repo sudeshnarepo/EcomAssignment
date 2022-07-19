@@ -42,15 +42,18 @@
   .checkout__order_product_info {
     margin: var(--unnamed-size-10) 0;
     color: var(--unnamed-color-172026);
-    .payment_title {
-      margin-bottom: var(--unnamed-size-8);
+    .order_title {
+      margin: var(--unnamed-size-16) 0;
     }
     .order__products {
       display: block;
       .order__product_details {
         display: flex;
+        padding: 8px;
         gap: var(--unnamed-size-10);
-        margin-bottom: var(--unnamed-size-10);
+        margin-right: var(--unnamed-size-20);
+        margin-bottom: var(--unnamed-size-20);
+        box-shadow: 0px 0px 0px 1px var(--gray-l1);
         .order__product_img {
           width: 90px;
           height: 90px;

@@ -4,11 +4,11 @@ import veniaLogo from "../../../assets/Icons/venia-logo.svg";
 const FooterEnd = () => {
     return (
         <>
-            <footer className='footer__end_wrapper'>
+            <footer className='footer__end_wrapper' aria-labelledby="footer-terms-copyright">
                 <div className='footer__end_container'>
-                    <div className="footer__venia_Logo ">
+                    <figure className="footer__venia_Logo ">
                         <img src={veniaLogo} alt="Logo" aria-hidden="true" />
-                    </div>
+                    </figure>
                     <div className="footer__copyright">
                         <p>© Company Name Address Ave, City Name, State ZIP</p>
                     </div>

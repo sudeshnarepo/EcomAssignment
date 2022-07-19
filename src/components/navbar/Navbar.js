@@ -21,15 +21,15 @@ const Navbar = () => {
   return (
     <>
       <header className="navbar aem-Grid aem-Grid--default--12 aem-Grid--phone--1">
-        <nav className="navbar__nav" role="navigation" aria-label="main menu">
+        <nav className="navbar__nav" role="navigation" aria-labelledby="main nav">
           <button
             className="navbar__nav-hamburger" onClick={handleClick} aria-expanded="true">
             <img src={hamburgerIcon} alt="hamburger" aria-hidden="true" />
           </button>
-          <div className="navbar__nav-logo" aria-labelledby="navbar title">
-            <Link to="/"><img src={veniaLogo} alt="Logo" aria-hidden="true" /></Link>
+          <div className="navbar__nav-logo" aria-label="navbar title">
+            <Link to="/"><img src={veniaLogo} alt="Logo"/></Link>
           </div>
-          <div className={showMenu ? "navbar__nav_link active" : "navbar__nav_link"}>
+          <div className={showMenu ? "navbar__nav_link active" : "navbar__nav_link"} aria-label="nav links" aria-expanded="true">
             <div className="navbar__btn-close">
               <h2>Shop Categories</h2>
               <img onClick={handleClick} src={timesIcon} alt="Button to close fliter bar"/>
@@ -39,10 +39,10 @@ const Navbar = () => {
                 <Link to="/product" target="_self" onClick={() => dispatch(filterCategory("All"))}>Home</Link>
               </li>
               <li>
-                <Link to="/product/Women" target="_self" onClick={() => dispatch(filterCategory("women's clothing"))}>Women</Link>
+                <Link to="/product/women" target="_self" onClick={() => dispatch(filterCategory("women's clothing"))}>Women</Link>
               </li>
               <li>
-                <Link to="/product/Men" target="_self" onClick={() => dispatch(filterCategory("men's clothing"))}>Men</Link>
+                <Link to="/product/men" target="_self" onClick={() => dispatch(filterCategory("men's clothing"))}>Men</Link>
               </li>
               <li>
                 <Link to="/product/electronics" target="_self" onClick={() => dispatch(filterCategory("electronics"))}>Smart Gear</Link>
@@ -54,8 +54,8 @@ const Navbar = () => {
           </div>
           <div className="navbar__nav-cart">
             <Link to="/product/Cart">
-              <img src={shoppingBag} alt="shopping cart" />x  
-              <span>({state.length})</span>
+              <img src={shoppingBag} alt="shopping cart" /> 
+              <span className="cart__count">({state.length})</span>
             </Link>
           </div>
         </nav>

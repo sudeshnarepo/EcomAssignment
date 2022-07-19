@@ -49,32 +49,19 @@ const CheckoutPayment = () => {
   return (
     <>
       <CheckoutTitle />
-      <section className="checkout__payment">
-        <aside className="checkout__payment_wrapper">
+      <section className="checkout__payment" aria-labelledby="payment=information">
+        <aside className="checkout__payment_wrapper" aria-label="payment=details">
           <h3 className="checkout__guest_title">Guest Checkout</h3>
-          <div className="checkout__shipping_information">
+          <section className="checkout__shipping_information">
             <div className="shipping__information_title">
               <h3 className="shipping_title">Shipping Information</h3>
-              <p onClick={()=>navigate('/checkout')} className="shipping__edit">
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="17"
-                  height="15"
-                  viewBox="0 0 22.061 21.828"
-                >
-                  <path
-                    id="edit-2"
-                    d="M17,3a2.828,2.828,0,0,1,4,4L7.5,20.5,2,22l1.5-5.5Z"
-                    transform="translate(-1 -1.172)"
-                    fill="none"
-                    stroke="#E26A2C"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                  />
+              <figure onClick={()=>navigate('/checkout')} className="shipping__edit">
+                <svg  xmlns="http://www.w3.org/2000/svg" width="17" height="15" viewBox="0 0 22.061 21.828" >
+                  <path id="edit-2" d="M17,3a2.828,2.828,0,0,1,4,4L7.5,20.5,2,22l1.5-5.5Z" transform="translate(-1 -1.172)" fill="none"  stroke="#E26A2C" strokeLinecap="round"
+                    strokeLinejoin="round" strokeWidth="2" />
                 </svg>{" "}
-                Edit
-              </p>
+                <figcaption>Edit</figcaption>
+              </figure>
             </div>
             <div className="shipping__information_details">
               <p>
@@ -92,30 +79,17 @@ const CheckoutPayment = () => {
                 </span>{" "}
               </p>
             </div>
-          </div>
+          </section>
           <div className="checkout__shipping_method_details">
             <div className="shipping__method__details_title">
               <h3 className="shipping_title">Shipping Method</h3>
-              <p onClick={()=>navigate('/CheckoutShipping')} className="shipping__edit">
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="17"
-                  height="15"
-                  viewBox="0 0 22.061 21.828"
-                >
-                  <path
-                    id="edit-2"
-                    d="M17,3a2.828,2.828,0,0,1,4,4L7.5,20.5,2,22l1.5-5.5Z"
-                    transform="translate(-1 -1.172)"
-                    fill="none"
-                    stroke="#E26A2C"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                  />
+              <figure onClick={()=>navigate('/CheckoutShipping')} className="shipping__edit">
+                <svg  xmlns="http://www.w3.org/2000/svg" width="17" height="15" viewBox="0 0 22.061 21.828" >
+                  <path id="edit-2" d="M17,3a2.828,2.828,0,0,1,4,4L7.5,20.5,2,22l1.5-5.5Z" transform="translate(-1 -1.172)" fill="none"
+                    stroke="#E26A2C" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
                 </svg>{" "}
-                Edit
-              </p>
+                <figcaption>Edit</figcaption>
+              </figure>
             </div>
             <div className="shipping__information_details">
               <p>
@@ -126,33 +100,21 @@ const CheckoutPayment = () => {
           </div>
           <div className="checkout__payment_information">
             <h4 className="payment_info_title">3. Payment Information</h4>
-
-            <form onSubmit={handleSubmit(onSubmit)} className="payment__form">
+            <form onSubmit={handleSubmit(onSubmit)} className="payment__form" role="form" aria-label="payment-form">
               <div className="payment_card_title">
                 <input
                   type="radio"
-                  {...register("payment")}
-                  value="creditCard"
-                  name="payment"
-                  className="payment_card_radio"
-                />{" "}
+                  {...register("payment")} value="creditCard" name="payment" className="payment_card_radio" autoComplete="off" />{" "}
                 <span>Credit Card</span>
               </div>
               <div className="payment__form_input">
-                <label className="card_label" htmlFor="cardName">
-                  Name on Card
-                </label>
-                <br />
+                <label className="card_label" htmlFor="cardName"> Name on Card </label> <br />
                 <input
                   {...register("cardName", {
                     required:
                       check === "creditCard" ? "Card Name is required" : false,
                   })}
-                  type="text"
-                  name="cardName"
-                  id="cardName"
-                  className="card_input"
-                />
+                  type="text" name="cardName" autoComplete="off" id="cardName" className="card_input" />
                 <p style={{ color: "red" }}>{errors.cardName?.message}</p>
               </div>
               <div className="payment__form_input">
@@ -173,19 +135,12 @@ const CheckoutPayment = () => {
                         message: "Enter 16 digit card number",
                       },
                   })}
-                  type="text"
-                  name="cardNumber"
-                  id="cardNumber"
-                  className="card_input"
-                />
+                  type="text" autoComplete="off" name="cardNumber" id="cardNumber" className="card_input" />
                 <p style={{ color: "red" }}>{errors.cardNumber?.message}</p>
               </div>
               <div className="payment__form_groups">
                 <div className="payment__form_input">
-                  <label className="card_label" htmlFor="expiryDate">
-                    Expiration Date
-                  </label>
-                  <br />
+                  <label className="card_label" htmlFor="expiryDate"> Expiration Date </label> <br />
                   <input
                     {...register("expiryDate", {
                       required:
@@ -193,11 +148,7 @@ const CheckoutPayment = () => {
                           ? "Expiry Date is required"
                           : false,
                     })}
-                    type="text"
-                    name="expiryDate"
-                    id="expiryDate"
-                    className="expiry_date"
-                  />
+                    type="text" name="expiryDate" autoComplete="off" id="expiryDate" className="expiry_date"/>
                   <p style={{ color: "red" }}>{errors.expiryDate?.message}</p>
                 </div>
                 <div className="payment__form_input">
@@ -210,55 +161,15 @@ const CheckoutPayment = () => {
                       required:
                         check === "creditCard" ? "CVV is required" : false,
                     })}
-                    type="text"
-                    name="cvv"
-                    id="cvv"
-                    className="cvv"
-                  />
+                    type="text" autoComplete="off" name="cvv" id="cvv" className="cvv" />
                   <p style={{ color: "red" }}>{errors.cvv?.message}</p>
                 </div>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 22 22"
-                  className="card_help"
-                >
-                  <g id="help-circle" transform="translate(-1 -1)">
-                    <circle
-                      id="Ellipse_126"
-                      data-name="Ellipse 126"
-                      cx="10"
-                      cy="10"
-                      r="10"
-                      transform="translate(2 2)"
-                      fill="none"
-                      stroke="#172026"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                    />
-                    <path
-                      id="Path_38006"
-                      data-name="Path 38006"
-                      d="M9.09,9a3,3,0,0,1,5.83,1c0,2-3,3-3,3"
-                      fill="none"
-                      stroke="#172026"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                    />
-                    <line
-                      id="Line_472"
-                      data-name="Line 472"
-                      x2="0.01"
-                      transform="translate(12 17)"
-                      fill="none"
-                      stroke="#172026"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                    />
+                <svg xmlns="http://www.w3.org/2000/svg"  aria-hidden="true" width="16" height="16" viewBox="0 0 22 22" className="card_help" >
+                  <g id="help-circle" transform="translate(-1 -1)"> <circle id="Ellipse_126" data-name="Ellipse 126" cx="10" cy="10"  r="10" transform="translate(2 2)"
+                      fill="none" stroke="#172026" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+                    <path id="Path_38006" data-name="Path 38006" d="M9.09,9a3,3,0,0,1,5.83,1c0,2-3,3-3,3" fill="none" stroke="#172026" strokeLinecap="round" strokeLinejoin="round"
+                      strokeWidth="2" />
+                    <line id="Line_472" data-name="Line 472" x2="0.01" transform="translate(12 17)" fill="none" stroke="#172026" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
                   </g>
                 </svg>
               </div>
@@ -267,11 +178,7 @@ const CheckoutPayment = () => {
               <div className="payment_paypal">
                 <input
                   {...register("payment")}
-                  type="radio"
-                  name="payment"
-                  value="paypal"
-                  className="payment_card_radio"
-                />{" "}
+                  type="radio" name="payment" value="paypal" className="payment_card_radio" />{" "}
                 <span>PayPal</span>
               </div>
               <p style={{ color: "red" }}>{error}</p>

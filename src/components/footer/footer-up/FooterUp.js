@@ -8,9 +8,9 @@ import { Link } from "react-router-dom";
 const FooterUp = () => {
   return (
     <>
-      <div className="footer__wrapper aem-Grid aem-Grid--default--12 aem-Grid--phone--1">
+      <footer className="footer__wrapper aem-Grid aem-Grid--default--12 aem-Grid--phone--1" aria-labelledby="signin-contact-socialicons">
         <div className="footer__wrapper_container">
-          <div className="footer__wrapper_links aem-GridColumn aem-GridColumn--default--3 aem-GridColumn--phone--1">
+          <div className="footer__wrapper_links aem-GridColumn aem-GridColumn--default--3 aem-GridColumn--phone--1" aria-label="signin">
             <strong>Account</strong>
             <ul>
               <li className="footer__list">
@@ -24,7 +24,7 @@ const FooterUp = () => {
               </li>
             </ul>
           </div>
-          <div className="footer__wrapper_links aem-GridColumn aem-GridColumn--default--3 aem-GridColumn--phone--1">
+          <div className="footer__wrapper_links aem-GridColumn aem-GridColumn--default--3 aem-GridColumn--phone--1" aria-label="about">
             <strong>About Us</strong>
             <ul>
               <li className="footer__list">
@@ -35,7 +35,7 @@ const FooterUp = () => {
               </li>
             </ul>
           </div>
-          <div className="footer__wrapper_links aem-GridColumn aem-GridColumn--default--3 aem-GridColumn--phone--1">
+          <div className="footer__wrapper_links aem-GridColumn aem-GridColumn--default--3 aem-GridColumn--phone--1" aria-label="contact"> 
             <strong>Help</strong>
             <ul>
               <li className="footer__list">
@@ -55,7 +55,7 @@ const FooterUp = () => {
               </li>
             </ul>
           </div>
-          <div className="footer__wrapper_links last aem-GridColumn aem-GridColumn--default--3 aem-GridColumn--phone--1">
+          <div className="footer__wrapper_links last aem-GridColumn aem-GridColumn--default--3 aem-GridColumn--phone--1" aria-label="social-icons">
             <strong className="column_4_title">Follow Us</strong>
             <p className="column_4_desc">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -68,7 +68,7 @@ const FooterUp = () => {
             </div>
           </div>
         </div>
-      </div>
+      </footer>
     </>
   );
 };

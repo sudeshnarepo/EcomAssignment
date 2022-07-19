@@ -22,6 +22,7 @@
       padding-bottom: 10px;
       color: var(--unnamed-color-172026);
       .shipping__edit {
+        display: flex;
         color: var(--primary-brand);
         &:hover {
           cursor: pointer;
@@ -34,6 +35,7 @@
     }
   }
   .checkout__shipping_method {
+    margin: 10px 0;
     .shipping__method_title {
       padding: var(--unnamed-size-16)  0;
       font-size: var(--unnamed-size-20) ;

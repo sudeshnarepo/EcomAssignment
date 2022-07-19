@@ -1,6 +1,6 @@
-// @import "../../Css/base";
-// @import "../../Css/mixins";
-// @import "../../Css/aem_grid";
+@import "../../Css/base";
+@import "../../Css/mixins";
+@import "../../Css/aem_grid";
 
 .navbar {
     padding-left: var(--unnamed-size-12);
@@ -33,17 +33,17 @@
             left: -110%;
             opacity: 1;
 
-            .navbar__btn-close{
+            .navbar__btn-close {
                 @include flex(center, space-between);
                 padding: var(--unnamed-size-20) var(--unnamed-size-16);
                 background: var(--gray-l1);
+
                 h2 {
                     color: var(--gray-d2);
                 }
             }
 
-            ul,
-            label {
+            ul{
                 position: relative;
                 left: 14px;
 
@@ -74,13 +74,19 @@
             width: 100vw;
             left: 0px;
             opacity: 1;
-            z-index: 1;
+            z-index: 999;
             overflow: hidden;
         }
 
         .navbar__nav-cart {
-            margin-right: var(--unnamed-size-10);            
+            margin-right: var(--unnamed-size-10);
             filter: invert(1);
+
+            span.cart__count {
+                position: relative;
+                bottom: 18px;
+                font-size: 14px;
+            }
         }
 
     }
@@ -90,9 +96,10 @@
 }
 
 @include tablet {
-    .navbar {        
+    .navbar {
         .navbar__nav {
             @include flex(center, space-around);
+
             .navbar__nav-hamburger {
                 display: none;
             }
@@ -105,7 +112,7 @@
                 left: 0;
                 opacity: 1;
 
-                .navbar__btn-close{
+                .navbar__btn-close {
                     display: none;
                 }
 
@@ -121,6 +128,7 @@
                         border: none;
                         width: auto;
                         padding: 0;
+
                         a {
                             color: var(--white);
                         }

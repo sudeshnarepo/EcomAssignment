@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Cart.css";
-import heart from "../../assets/Icons/heart.svg";
 import trash from "../../assets/Icons/trash-2.svg";
 import edit from "../../assets/Icons/edit-2.svg";
 import chevron from "../../assets/Icons/chevron-down.svg";
@@ -37,88 +36,57 @@ const Cart = () => {
 
   return (
     <>
-      <div className="cart__wrapper aem-Grid aem-Grid--default--12 aem-Grid--phone--1">
-        <Link to="/">
-          {" "}
-          <h2 className="cart__shopping_bag">Shopping Bag</h2>
-        </Link>
-        <div className="cart-left aem-GridColumn aem-GridColumn--default--8 aem-GridColumn--phone--1">
+      <section className="cart__wrapper aem-Grid aem-Grid--default--12 aem-Grid--phone--1" aria-labelledby="shopping-cart">
+        <header>
+        <Link to="/"> {" "} <h2 className="cart__shopping_bag">Shopping Bag</h2> </Link>
+        </header>
+        <aside className="cart__left aem-GridColumn aem-GridColumn--default--8 aem-GridColumn--phone--1" aria-labelledby="cart-product">
           {cart.map((cart) => {
             return (
-              <div
-                className="wrapper aem-Grid aem-Grid--default--12 aem-Grid--phone--1"
-                key={cart.id}
-              >
-                <div className="left aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--phone--1">
-                  <img
-                    src={cart.image}
-                    alt="cart titile here"
-                    className="cart-img"
-                  />
-                  <div className="cotent-wrapper">
-                    <h2>{cart.category}</h2>
+              <div className="cart__product_wrapper aem-Grid aem-Grid--default--12 aem-Grid--phone--1" key={cart.id} aria-labelledby="cart-product-item" >
+                <div className="product__wrapper_left aem-GridColumn aem-GridColumn--default--5 aem-GridColumn--phone--1">
+                  <img src={cart.image} alt="cart titile here" className="cart__img" />
+                  <div className="content-wrapper">
+                    <h2 className="">{cart.category}</h2>
                     <p>Size: Medium</p>
                     <p>Color: Medium</p>
                     <p>{cart.price}</p>
                   </div>
                 </div>
-                <div className="right aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--phone--1">
-                  <div className="btn-qty">
-                    <button onClick={() => dispatch(decreaseQt(cart.id))}>
+                <div className="product__wrapper_right aem-GridColumn aem-GridColumn--default--7 aem-GridColumn--phone--1">
+                  <div className="button__qty">
+                    <button type="button" className="button__qty_btn" onClick={() => dispatch(decreaseQt(cart.id))}>
                       {" "}
                       -{" "}
                     </button>
-                    <input type="string" value={cart.quantity} id="numbr" />
-                    <button onClick={() => dispatch(increaseQt(cart.id))}>
+                    <input className="button__qty_input" type="string" value={cart.quantity} id="numbr" />
+                    <button className="button__qty_btn" onClick={() => dispatch(increaseQt(cart.id))}>
                       {" "}
                       +{" "}
                     </button>
                   </div>
-                  <div className="edit">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        navigate(`/product/${cart.id}`);
-                      }}
-                      yd
-                    >
+                  <div className="cart_edit">
+                    <button type="button" onClick={() => { navigate(`/product/${cart.id}`); }}>
                       {" "}
                       <img src={edit} alt="edit icon" /> Edit{" "}
                     </button>
-                    <button
-                      type="button"
-                      onClick={() => dispatch(remove(cart.id))}
-                    >
+                    <button type="button" onClick={() => dispatch(remove(cart.id))} >
                       <img src={trash} alt="trash icon" /> Remove
                     </button>
                     <button type="button">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="22.903"
-                        height="20.232"
-                        viewBox="0 0 22.903 20.232"
-                        onClick={(e) => handleHeart(e, cart.id)}
-                      >
-                        <path
-                          id="heart"
-                          d="M20.84,4.61a5.5,5.5,0,0,0-7.78,0L12,5.67,10.94,4.61a5.5,5.5,0,0,0-7.78,7.78l1.06,1.06L12,21.23l7.78-7.78,1.06-1.06a5.5,5.5,0,0,0,0-7.78Z"
-                          transform="translate(-0.549 -1.998)"
-                          fill={id.includes(cart.id) ? "#333" : "none"}
-                          stroke="#172026"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                        />
-                      </svg>
-                      Save for later
+                      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="17" height="17" viewBox="0 0 22.903 20.232" onClick={(e) => handleHeart(e, cart.id)} >
+                        <path id="heart" d="M20.84,4.61a5.5,5.5,0,0,0-7.78,0L12,5.67,10.94,4.61a5.5,5.5,0,0,0-7.78,7.78l1.06,1.06L12,21.23l7.78-7.78,1.06-1.06a5.5,5.5,0,0,0,0-7.78Z"
+                          transform="translate(-0.549 -1.998)" fill={id.includes(cart.id) ? "#333" : "none"} stroke="#172026" strokeLinecap="round" strokeLinejoin="round"
+                          strokeWidth="2"/>
+                      </svg> Save for later
                     </button>
                   </div>
                 </div>
               </div>
             );
           })}
-        </div>
-        <div className="cart-right aem-GridColumn aem-GridColumn--default--4 aem-GridColumn--phone--1">
+        </aside>
+        <aside className="cart__right aem-GridColumn aem-GridColumn--default--4 aem-GridColumn--phone--1" aria-labelledby="product-summary">
           <div className="product__summary_wrapper">
             <strong>Pricing Summary</strong>
             <ul className="product__summary_content">
@@ -146,45 +114,35 @@ const Cart = () => {
               <li style={{ fontWeight: "bold" }}>${totalSum + 100 + 28}</li>
             </ul>
             <div className="product__checkout_button">
-              <button
-                className="product__checkout_btn"
-                disabled={cart.length === 0}
-                onClick={() => navigate("/checkout")}
-              >
-                {" "}
-                CHECKOUT
-              </button>
-              <button className="product__checkout_paypal">
-                {" "}
-                <img
-                  src={require("../../assets/images/ppbtn.png")}
-                  alt="Paypal"
-                />{" "}
+              <button type="button" className="product__checkout_btn" disabled={cart.length === 0} onClick={() => navigate("/checkout")}>
+                {" "} CHECKOUT </button>
+              <button type="button" className="product__checkout_paypal">
+                {" "} <img src={require("../../assets/images/ppbtn.png")} alt="Paypal" />{" "}
               </button>
             </div>
           </div>
-        </div>
-      </div>
-      <div className="select-wrapper">
-        <ul tabIndex={0} role="listbox">
+        </aside>
+      </section>
+      <section className="select__wrapper" aria-labelledby="estimate-shopping-title">
+        <ul className="select__wrapper_list" role="listbox">
           <li>Estimate Your Shopping</li>
           <li>
             Shopping to 91001 <img src={chevron} alt="dropdown" />
           </li>
         </ul>
-        <ul tabIndex={0} role="listbox">
+        <ul className="select__wrapper_list" role="listbox">
           <li>Enter a Coupon code</li>
           <li>
             20% discount applied <img src={chevron} alt="dropdown" />
           </li>
         </ul>
-        <ul tabIndex={0} role="listbox">
+        <ul className="select__wrapper_list" role="listbox">
           <li>Apply Gift Card </li>
           <li>
             <img src={chevron} alt="dropdown" />
           </li>
         </ul>
-      </div>
+      </section>
     </>
   );
 };

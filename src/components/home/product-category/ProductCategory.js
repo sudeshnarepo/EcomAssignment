@@ -23,25 +23,25 @@ const ProductCategory = () => {
         id: "women",
         image: women?.image,
         text: "Show Women",
-        title: women?.title.substring(0, 15),
+        title: women?.title.substring(0, 12),
       },
       men: {
         id: "men",
         image: men?.image,
         text: "Show Men",
-        title: men?.title.substring(0, 15),
+        title: men?.title.substring(0, 12),
       },
       electronics: {
         id: "electronics",
         image: electronics?.image,
         text: "Show Women",
-        title: electronics?.title.substring(0, 15),
+        title: electronics?.title.substring(0, 12),
       },
       jewelery: {
         id: "jewelery",
         image: jewelery?.image,
         text: "Show Women",
-        title: jewelery?.title.substring(0, 15),
+        title: jewelery?.title.substring(0, 12),
       },
     };
     setProductArray(product);
@@ -52,8 +52,8 @@ const ProductCategory = () => {
 
   return (
     <>
-      <section  className="product__category">
-        <article onClick={()=>navigate('/product/Women')} className="product__category_card">
+      <section  className="product__category" aria-labelledby="product-category-cards">
+        <article onClick={()=>navigate('/product/women')} role="button" className="product__category_card">
           <img
             className="product__category_image"
             src={productArray?.women?.image}
@@ -66,7 +66,7 @@ const ProductCategory = () => {
             </p>
           </div>
         </article>
-        <article onClick={()=>navigate('/product/Men')} className="product__category_card">
+        <article onClick={()=>navigate('/product/men')} role="button" className="product__category_card">
           <img
             className="product__category_image"
             src={productArray?.men?.image}
@@ -77,7 +77,7 @@ const ProductCategory = () => {
             <p className="product__category_price">{productArray?.men?.title}</p>
           </div>
         </article>
-        <article onClick={()=>navigate('/product/jewelery')} className="product__category_card">
+        <article onClick={()=>navigate('/product/jewelery')} role="button" className="product__category_card">
           <img
             className="product__category_image"
             src={productArray?.jewelery?.image}
@@ -90,7 +90,7 @@ const ProductCategory = () => {
             </p>
           </div>
         </article>
-        <article onClick={()=>navigate('/product/electronics')} className="product__category_card">
+        <article onClick={()=>navigate('/product/electronics')} role="button" className="product__category_card">
           <img
             className="product__category_image"
             src={productArray?.electronics?.image}
